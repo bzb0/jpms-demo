@@ -13,6 +13,8 @@
         <module>module-a</module>
         <module>module-b</module>
         <module>build</module>
+        <module>sorter-service</module>
+      <module>quick-sorter</module>
     </modules>
 
     <properties>
