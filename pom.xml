@@ -17,6 +17,7 @@
     <module>sorter-service</module>
     <module>quick-sorter</module>
     <module>auto-modules</module>
+    <module>classpath</module>
   </modules>
 
   <properties>

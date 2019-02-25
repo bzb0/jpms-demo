@@ -9,6 +9,7 @@ import java.util.Random;
 import java.util.ServiceLoader;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import org.apache.commons.math3.complex.Complex;
 
 public class Main {
 
@@ -30,6 +31,12 @@ public class Main {
 
     /* Testing a runtime access to classes from other modules. */
     runtimeAccess();
+
+
+    /* Reflective access to a class from the classpath. :) */
+    ComplexNumberConsumer consumer = new ComplexNumberConsumer();
+    Complex complexNumber = consumer.getComplexNumber();
+    consumer.printComplexNumber(complexNumber);
   }
 
   private static void runtimeAccess() {
