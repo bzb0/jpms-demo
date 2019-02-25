@@ -1,34 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>com.zbit.modules.mvn</artifactId>
-        <groupId>com.zbit.modules</groupId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
-    <modelVersion>4.0.0</modelVersion>
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>com.zbit.modules.mvn</artifactId>
+    <groupId>com.zbit.modules</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>com.zbit.modules.module-a</artifactId>
+  <artifactId>com.zbit.modules.module-a</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.zbit.modules</groupId>
-            <artifactId>com.zbit.modules.module-b</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-      <dependency>
-        <groupId>com.zbit.modules</groupId>
-        <artifactId>com.zbit.modules.sorter-service</artifactId>
-        <version>1.0-SNAPSHOT</version>
-        <scope>compile</scope>
-      </dependency>
-      <dependency>
-        <groupId>com.zbit.modules</groupId>
-        <artifactId>com.zbit.modules.quick-sorter</artifactId>
-        <version>1.0-SNAPSHOT</version>
-        <scope>compile</scope>
-      </dependency>
-    </dependencies>
+  <dependencies>
+    <dependency>
+      <groupId>com.zbit.modules</groupId>
+      <artifactId>com.zbit.modules.module-b</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.zbit.modules</groupId>
+      <artifactId>com.zbit.modules.sorter-service</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.zbit.modules</groupId>
+      <artifactId>com.zbit.modules.quick-sorter</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-math3</artifactId>
+      <version>3.2</version>
+    </dependency>
+  </dependencies>
 
 </project>

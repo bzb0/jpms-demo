@@ -23,6 +23,11 @@
             <artifactId>com.zbit.modules.module-b</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.zbit.modules</groupId>
+            <artifactId>com.zbit.modules.classpath</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
