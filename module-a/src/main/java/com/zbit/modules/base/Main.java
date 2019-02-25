@@ -21,6 +21,11 @@ public class Main {
     SorterService sorter = getSorterService();
     sorter.sort(unsortedList);
     System.out.println("Sorted List  : \t" + unsortedList);
+
+    /* Using a class from a module, that is not required by module A.
+     * The class here is not imported, since we don't do anything with object.
+     * Still we can't call methods on the object from type Pair.  */
+    System.out.println("Pair: " + new StringCreator().createPair("a", "b"));
   }
 
   private static SorterService getSorterService() {
