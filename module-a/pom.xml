@@ -17,6 +17,18 @@
             <artifactId>com.zbit.modules.module-b</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+      <dependency>
+        <groupId>com.zbit.modules</groupId>
+        <artifactId>com.zbit.modules.sorter-service</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.zbit.modules</groupId>
+        <artifactId>com.zbit.modules.quick-sorter</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <scope>compile</scope>
+      </dependency>
     </dependencies>
 
 </project>
