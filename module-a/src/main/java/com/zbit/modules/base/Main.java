@@ -2,6 +2,7 @@ package com.zbit.modules.base;
 
 import com.zbit.modules.sorter.spi.SorterService;
 import com.zbit.strings.util.StringCreator;
+import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
@@ -26,6 +27,21 @@ public class Main {
      * The class here is not imported, since we don't do anything with object.
      * Still we can't call methods on the object from type Pair.  */
     System.out.println("Pair: " + new StringCreator().createPair("a", "b"));
+
+    /* Testing a runtime access to classes from other modules. */
+    runtimeAccess();
+  }
+
+  private static void runtimeAccess() {
+    try {
+      Class c = Class.forName("com.zbit.reflective.ReflectiveClass");
+      Method m = c.getMethod("getSomething");
+
+      Object instance = c.getDeclaredConstructor().newInstance();
+      System.out.println("Result: " + m.invoke(instance));
+    } catch (Throwable e) {
+      System.err.println(e);
+    }
   }
 
   private static SorterService getSorterService() {
