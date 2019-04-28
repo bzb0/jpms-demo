@@ -18,6 +18,7 @@
     <module>quick-sorter</module>
     <module>auto-modules</module>
     <module>classpath</module>
+    <module>rest-app</module>
   </modules>
 
   <properties>
