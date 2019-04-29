@@ -1,3 +1,18 @@
+/*
+ * Copyright 2017-2019 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.zbit.modules.base;
 
 import com.zbit.modules.sorter.spi.SorterService;
@@ -16,24 +31,23 @@ public class Main {
   public static void main(String[] args) {
     System.out.format("Hello World: " + new StringCreator().generateRandomString() + "\n");
 
-    List<Integer> unsortedList = Stream.generate(() -> new Random().nextInt(50)).limit(15)
+    List<Integer> unsortedList = Stream.generate(() -> new Random().nextInt(50))
+        .limit(15)
         .collect(Collectors.toList());
     System.out.println("Unsorted List: \t" + unsortedList);
 
     SorterService sorter = getSorterService();
     sorter.sort(unsortedList);
-    System.out.println("Sorted List  : \t" + unsortedList);
+    System.out.println("Sorted List: \t" + unsortedList);
 
-    /* Using a class from a module, that is not required by module A.
-     * The class here is not imported, since we don't do anything with object.
-     * Still we can't call methods on the object from type Pair.  */
+    /* Using a class from a module, that is not required by module A. The class here is not imported,
+       since we don't do anything with object. Still we can't call methods on the object from type Pair.  */
     System.out.println("Pair: " + new StringCreator().createPair("a", "b"));
 
-    /* Testing a runtime access to classes from other modules. */
+    // Testing a runtime access to classes from other modules
     runtimeAccess();
 
-
-    /* Reflective access to a class from the classpath. :) */
+    // Reflective access to a class from the classpath.
     ComplexNumberConsumer consumer = new ComplexNumberConsumer();
     Complex complexNumber = consumer.getComplexNumber();
     consumer.printComplexNumber(complexNumber);
@@ -43,11 +57,10 @@ public class Main {
     try {
       Class c = Class.forName("com.zbit.reflective.ReflectiveClass");
       Method m = c.getMethod("getSomething");
-
       Object instance = c.getDeclaredConstructor().newInstance();
       System.out.println("Result: " + m.invoke(instance));
     } catch (Throwable e) {
-      System.err.println(e);
+      e.printStackTrace();
     }
   }
 

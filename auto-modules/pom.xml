@@ -28,6 +28,4 @@
       <systemPath>${project.basedir}/lib/evil-math-3.2.jar</systemPath>
     </dependency>
   </dependencies>
-
-
 </project>
