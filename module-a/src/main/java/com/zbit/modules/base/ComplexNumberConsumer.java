@@ -16,6 +16,7 @@
 package com.zbit.modules.base;
 
 import java.lang.reflect.Method;
+import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
 import org.apache.commons.math3.complex.Complex;
 
@@ -29,7 +30,7 @@ public class ComplexNumberConsumer {
     System.out.println("Modulepath classloader: " + moduleComplex.getClass().getClassLoader().getName());
   }
 
-  public Complex getComplexNumber() {
+  public Optional<Complex> getComplexNumber() {
     try {
       Class c = Class.forName("com.zbit.math.complex.ComplexCreator");
       Method m = c.getMethod("createComplexNumber", double.class);
@@ -37,9 +38,10 @@ public class ComplexNumberConsumer {
       Object instance = c.getDeclaredConstructor().newInstance();
       System.out.println("Classpath classloader: " + instance.getClass().getClassLoader().getName());
 
-      return (Complex) m.invoke(instance, random.nextDouble());
-    } catch (Throwable e) {
-      throw new IllegalStateException("Reflection problem.");
+      return Optional.of((Complex) m.invoke(instance, random.nextDouble()));
+    } catch (ReflectiveOperationException e) {
+      e.printStackTrace();
+      return Optional.empty();
     }
   }
 }

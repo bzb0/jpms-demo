@@ -49,8 +49,8 @@ public class Main {
 
     // Reflective access to a class from the classpath.
     ComplexNumberConsumer consumer = new ComplexNumberConsumer();
-    Complex complexNumber = consumer.getComplexNumber();
-    consumer.printComplexNumber(complexNumber);
+    Optional<Complex> complexNumber = consumer.getComplexNumber();
+    consumer.printComplexNumber(complexNumber.orElseGet(() -> new Complex(5, 2)));
   }
 
   private static void runtimeAccess() {
@@ -58,7 +58,7 @@ public class Main {
       Class c = Class.forName("com.zbit.reflective.ReflectiveClass");
       Method m = c.getMethod("getSomething");
       Object instance = c.getDeclaredConstructor().newInstance();
-      System.out.println("Result: " + m.invoke(instance));
+      System.out.println("Reflection result: " + m.invoke(instance));
     } catch (Throwable e) {
       e.printStackTrace();
     }
