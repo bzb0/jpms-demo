@@ -42,6 +42,7 @@
               <goal>single</goal>
             </goals>
             <configuration>
+              <finalName>build-${version}</finalName>
               <descriptors>
                 <descriptor>src/main/assembly/jar-with-modules.xml</descriptor>
               </descriptors>
